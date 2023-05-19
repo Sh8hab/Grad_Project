@@ -14,7 +14,7 @@ final emailValidator = MultiValidator([
 ]);
 final phoneValidator = MultiValidator([
   RequiredValidator(errorText: 'phone is required'),
-  PatternValidator(r'(^[0-9]{11}$)', errorText: 'phone Number is Not valid')
+  PatternValidator(r'(^[0-9]{10}$)', errorText: 'phone Number is Not valid')
 ]);
 // final numberValidator = MultiValidator([
 //   RequiredValidator(errorText: 'age is required'),

@@ -17,10 +17,9 @@ import 'package:graduation_project/view_model/database/local/cache_helper.dart';
 import 'package:graduation_project/view_model/database/local/sql_lite.dart';
 import 'code/BlocObserver.dart';
 import 'firebase_options.dart';
+
 // main is Enter point of the app
-void main()
-async
-{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // shard preferences
   await CacheHelper.init();
@@ -68,10 +67,9 @@ class MyApp extends StatelessWidget {
             ),
           ],
           child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: getTheme(),
-            home: const SplashScreen()
-          ),
+              debugShowCheckedModeBanner: false,
+              theme: getTheme(),
+              home: const SplashScreen()),
         );
       },
     );

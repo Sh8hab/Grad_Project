@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/view/pages/auth/login_screen.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import '../../components/pharmacy_info.dart';
 import '../../components/user_info.dart';
@@ -22,14 +23,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
         if (state is RegisterSuccessfulState) {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text("Create Account Successful"),
             backgroundColor: Colors.green,
           ));
-
-          Navigator.maybePop(context);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => LoginScreen()));
         } else if (state is RegisterErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.message),
@@ -51,11 +51,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image(
-                        image: AssetImage('assets/images/logo.png'),
+                        image: const AssetImage('assets/images/logo.png'),
                         height: 200.h,
                         width: 300.w,
                       ),
-                      Text(
+                      const Text(
                         "Register",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.w900),
@@ -75,7 +75,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         // After selecting the desired option,it will
                         // change button value to selected value
                         onChanged: (String? newValue) {
-                          print(newValue);
                           setState(() {
                             dropdownvalue = newValue!;
                           });
@@ -83,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       (dropdownvalue == 'User')
                           ? const UserIfo()
-                          : const PharmacyInfo(),
+                          : const EmployeeInfo(),
                     ],
                   ),
                 ),

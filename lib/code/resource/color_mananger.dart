@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-class ColorManage{
+
+class ColorManage {
   static const Color primaryBlue = Color(0xff0157E4);
   static const Color primaryYellow = Color(0xffFFB100);
   static const Color variantBlue2 = Color(0xff708DED);
@@ -14,15 +15,4 @@ class ColorManage{
   static const Color activeButton = Color(0xffFF8E00);
   static const Color variantBlue3 = Color(0xffC5CDF7);
   static const Color price = Color(0xffFF4F4F);
-
-
-
-
-
-
-
-
-
-
-
 }

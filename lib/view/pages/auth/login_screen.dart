@@ -25,7 +25,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>(); // for validation
   TextEditingController emailController = TextEditingController(); // for email
-  TextEditingController passwordController = TextEditingController(); // for password
+  TextEditingController passwordController =
+      TextEditingController(); // for password
   bool showPassword = true; // for show password
 
   @override
@@ -67,8 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
               ), (route) => false);
             }
-          }
-          else if (state.role == '2') {
+          } else if (state.role == '2') {
             if (state.ban) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -111,8 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
               }
             }
             print('Amr 2');
-          }
-          else {
+          } else {
             if (state.ban) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -210,8 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           function: () {
                             setState(() {
                               showPassword = !showPassword;
-                            }
-                            );
+                            });
                           },
                         ),
                         SizedBox(
@@ -219,23 +217,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         (state is LoginLoadingState)
                             ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
+                                child: CircularProgressIndicator(),
+                              )
                             : CustomButton(
-                          function: () {
-                            if (formKey.currentState!.validate()) {
-                              authCubit.login(
-                                email: emailController.text.trim(),
-                                password: passwordController.text,
-                              );
-                            }
-                          },
-                          color: Color(0xff1A81F7),
-                          widget: Text("LOGIN"),
-                          size: Size(300.w, 50.h),
-                          radius: 20.r,
-                          disable: true,
-                        ),
+                                function: () {
+                                  if (formKey.currentState!.validate()) {
+                                    authCubit.login(
+                                      email: emailController.text.trim(),
+                                      password: passwordController.text,
+                                    );
+                                  }
+                                },
+                                color: Color(0xff1A81F7),
+                                widget: Text("LOGIN"),
+                                size: Size(300.w, 50.h),
+                                radius: 20.r,
+                                disable: true,
+                              ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -278,7 +276,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => VerificationScreen()));
+                                          builder: (context) =>
+                                              VerificationScreen()));
                                 },
                                 child: Column(
                                   children: [

@@ -8,14 +8,14 @@ import 'custom_button.dart';
 import 'custom_text_field.dart';
 import 'custom_texts.dart';
 
-class PharmacyInfo extends StatefulWidget {
-  const PharmacyInfo({Key? key}) : super(key: key);
+class EmployeeInfo extends StatefulWidget {
+  const EmployeeInfo({Key? key}) : super(key: key);
 
   @override
-  State<PharmacyInfo> createState() => _PharmacyInfoState();
+  State<EmployeeInfo> createState() => _EmployeeInfoState();
 }
 
-class _PharmacyInfoState extends State<PharmacyInfo> {
+class _EmployeeInfoState extends State<EmployeeInfo> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();
@@ -38,20 +38,21 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
     'User',
     'Employee',
   ];
-@override
+  @override
   void dispose() {
     // TODO: implement dispose
-  emailController.text = '';
-  passwordController.text  = '';
-  nameController.text = '';
-  ageController.text = '';
-  descriptionController.text = '';
-  phoneController.text = '';
-  chronicDiseases.text = '';
-  address.text = '';
+    emailController.text = '';
+    passwordController.text = '';
+    nameController.text = '';
+    ageController.text = '';
+    descriptionController.text = '';
+    phoneController.text = '';
+    chronicDiseases.text = '';
+    address.text = '';
 
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
@@ -142,7 +143,6 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
               const SizedBox(
                 height: 20,
               ),
-
               text(text: 'Phone'),
               CustomTextField(
                 textInputType: TextInputType.phone,
@@ -152,7 +152,39 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                 iconData: Icons.phone,
               ),
               // creat drop down button
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      text(text: 'phone'),
+                      Radio(
+                        value: 0,
+                        groupValue: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value as int;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      text(text: 'Email'),
+                      Radio(
+                        value: 1,
+                        groupValue: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value as int;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -165,15 +197,15 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                         // i validate if user Enter all data and then
                         // send data to BackEnd
                         if (formKey.currentState!.validate()) {
-                          cubit.registerPharamcy(
-                            email: emailController.text.trim(),
-                            password: passwordController.text,
-                            phone: phoneController.text,
-                            name: nameController.text,
-                            address: address.text,
-                            description: descriptionController.text,
-                            role: '2', // will change
-                          );
+                          cubit.registerEmploy(
+                              email: emailController.text.trim(),
+                              password: passwordController.text,
+                              phone: phoneController.text,
+                              name: nameController.text,
+                              address: address.text,
+                              description: descriptionController.text,
+                              role: '2', // will change
+                              phoneOrEmail: selectedValue);
                         }
                       },
                       color: const Color(0xff1A81F7),
