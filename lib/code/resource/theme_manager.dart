@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:graduation_project/code/resource/color_mananger.dart';
 
 ThemeData getTheme() {
-  Color primaryColor =Color(0xff2176ff);
+  Color primaryColor =Colors.purple;
   return ThemeData(
 
       scaffoldBackgroundColor: Color(0xffF2F3F7),

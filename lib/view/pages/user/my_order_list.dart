@@ -199,9 +199,16 @@ class _MyOrderListState extends State<MyOrderList> {
                 });
               },
               child: Container(
+                decoration: BoxDecoration(
+                    color:buttonColor,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15,
+                    )
+                  ]
+                ),
                 height: 0.1.sh,
                 width: 1.sw,
-                color:buttonColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -214,7 +221,7 @@ class _MyOrderListState extends State<MyOrderList> {
                         // TODO: implement listener
                       },
                       builder: (context, state) {
-                        return Text("${GetPriceCubit.get(context).total} SAR",
+                        return Text("${GetPriceCubit.get(context).total} EGP",
                             style: const TextStyle(color: Colors.white));
                       },
                     ),

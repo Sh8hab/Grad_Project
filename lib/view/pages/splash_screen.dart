@@ -23,12 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xfff6f9fe),
+        backgroundColor: Color(0xfffcf7fe),
         body: ElasticInUp(
           duration: Duration(seconds: 3),
           // delay: Duration(seconds: 2),
           child: Image(
-            image: AssetImage("assets/images/splash.png"),
+            image: AssetImage("assets/images/splash.JPG"),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
           ),

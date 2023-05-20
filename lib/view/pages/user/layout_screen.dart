@@ -147,7 +147,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                           onTap: () async {
                             final Uri call = Uri(
                               scheme: 'tel',
-                              path: '+01126544408',
+                              path: '+01121527620',
                             );
 
                             launchUrl(call);
@@ -188,14 +188,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
               cubit.changeBottomNavBar(index);
             },
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: FaIcon(FontAwesomeIcons.capsules), label: 'Medicine'),
+                  icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: FaIcon(FontAwesomeIcons.houseMedical),
-                  label: 'Pharmacy'),
-              BottomNavigationBarItem(
-                  icon: FaIcon(FontAwesomeIcons.stethoscope), label: 'Device'),
+                  icon: FaIcon(FontAwesomeIcons.handsWash), label: 'Cleaners'),
               BottomNavigationBarItem(
                   icon: FaIcon(FontAwesomeIcons.search), label: 'search'),
             ],

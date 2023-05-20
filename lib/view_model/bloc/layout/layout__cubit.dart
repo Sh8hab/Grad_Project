@@ -47,9 +47,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   ];
   List<String> titles = [
     'Home',
-    'Medicine',
-    'Pharmacy',
-    'Medical equipment',
+    'Cleaners',
     'Search',
   ];
   void changeBottomNavBarPharamcy(int index) {

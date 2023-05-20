@@ -113,12 +113,8 @@ class _EditUserInfoState extends State<EditUserInfo> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
-                                  height: 20.h,
-                                ),
-                                text(text: 'chronic-diseases'),
-                                SizedBox(
                                   width: 300.w,
-                                  height: 100.w,
+                                  height: 30.w,
                                   child: ListView.builder(
                                     itemBuilder: (context, index) {
                                       return Text(

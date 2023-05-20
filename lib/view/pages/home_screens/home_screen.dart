@@ -11,13 +11,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomButton(widget: const Text("Sigin in"),
+          CustomButton(widget: const Text("Sign in"),
               function: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return LoginScreen();
             },));
               }, disable: true,color: Colors.black),
-          CustomButton(widget: const Text("Sigin up"),
+          CustomButton(widget: const Text("Sign up"),
               function: (){
             return RegisterScreen();
               }, color: Colors.black,
