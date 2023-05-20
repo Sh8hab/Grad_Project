@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view/pages/auth/login_screen.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
-import '../../components/pharmacy_info.dart';
+import '../../components/employee_info.dart';
 import '../../components/user_info.dart';
 
 class RegisterScreen extends StatefulWidget {

@@ -43,7 +43,7 @@ class CustomBuyCardProduct extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            Text(" $price L.E",
+            Text(" $price EGP",
                 style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w700,

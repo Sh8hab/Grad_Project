@@ -67,13 +67,13 @@ class _EmployeeInfoState extends State<EmployeeInfo> {
               CustomTextField(
                 controller: emailController,
                 fieldValidator: emailValidator,
-                hint: 'email',
+                hint: 'Email',
                 iconData: Icons.email,
               ),
               const SizedBox(
                 height: 20,
               ),
-              text(text: 'password'),
+              text(text: 'Password'),
               CustomTextField(
                 controller: passwordController,
                 fieldValidator: passwordValidator,
@@ -159,6 +159,7 @@ class _EmployeeInfoState extends State<EmployeeInfo> {
                     children: [
                       text(text: 'phone'),
                       Radio(
+                        activeColor: Colors.purple,
                         value: 0,
                         groupValue: selectedValue,
                         onChanged: (value) {
@@ -173,6 +174,7 @@ class _EmployeeInfoState extends State<EmployeeInfo> {
                     children: [
                       text(text: 'Email'),
                       Radio(
+                        activeColor: Colors.purple,
                         value: 1,
                         groupValue: selectedValue,
                         onChanged: (value) {
@@ -208,7 +210,7 @@ class _EmployeeInfoState extends State<EmployeeInfo> {
                               phoneOrEmail: selectedValue);
                         }
                       },
-                      color: const Color(0xff1A81F7),
+                      color: Colors.purple,
                       widget: const Text("Register"),
                       size: Size(300.w, 50.h),
                       radius: 20.r,

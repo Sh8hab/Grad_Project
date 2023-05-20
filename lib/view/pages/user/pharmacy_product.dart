@@ -208,7 +208,7 @@ class _PharmacyProductState extends State<PharmacyProduct> {
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis),
                                     Text(
-                                        "SAR ${cubit.productsModel[index].price}",
+                                        "${cubit.productsModel[index].price} EGP",
                                         style: TextStyle(
                                           fontSize: 20.sp,
                                           fontWeight: FontWeight.w700,

@@ -190,9 +190,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         text(text: 'Email'),
                         CustomTextField(
+
                           controller: emailController,
                           fieldValidator: emailValidator,
-                          hint: 'email',
+                          hint: 'Email',
                           iconData: Icons.email,
                         ),
                         SizedBox(
@@ -213,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 80.h,
                         ),
                         (state is LoginLoadingState)
                             ? const Center(
@@ -228,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     );
                                   }
                                 },
-                                color: Color(0xff1A81F7),
+                                color: Colors.purple,
                                 widget: Text("LOGIN"),
                                 size: Size(300.w, 50.h),
                                 radius: 20.r,
@@ -248,49 +249,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                                 child: Text(
                                   "Register",
-                                  style: TextStyle(color: Color(0xff1A81F7)),
+                                  style: TextStyle(color: Colors.purple),
                                 ))
                           ],
                         ),
                         SizedBox(
                           height: 15.h,
-                        ),
-                        Center(
-                          child: Text(
-                            'Continue with',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 18.h,
-                        ),
-                        SizedBox(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              VerificationScreen()));
-                                },
-                                child: Column(
-                                  children: [
-                                    Image.asset(
-                                      'assets/images/p17.png',
-                                      height: 62.h,
-                                      width: 62.w,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ],
                     ),

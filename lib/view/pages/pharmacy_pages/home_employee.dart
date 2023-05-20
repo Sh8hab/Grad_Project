@@ -15,7 +15,7 @@ import '../auth/login_screen.dart';
 import 'Edit_Product_Screen.dart';
 import 'add_service_screen.dart';
 import 'create_product.dart';
-import 'edit_pharmacy_info.dart';
+import 'edit_employee_info.dart';
 import 'messageScreen.dart';
 
 class HomePharmacyScreen extends StatefulWidget {
@@ -46,7 +46,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
         var authCubit = AuthCubit.get(context);
         return Scaffold(
             appBar: AppBar(
-              title: const Text('Home Pharmacy'),
+              title: const Text('Home Employee'),
               actions: [
                 BlocConsumer<PharmacyCubit, PharmacyState>(
                   listener: (context, state) {
@@ -87,6 +87,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.perm_identity),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Create Product"),
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
@@ -98,6 +99,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.settings),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Settings"),
                             onTap: () {
                               Navigator.push(
@@ -110,6 +112,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.home_repair_service),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("service"),
                             onTap: () {
                               Navigator.push(
@@ -122,6 +125,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.design_services_sharp),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Show all Service"),
                             onTap: () {
                               Navigator.push(
@@ -134,6 +138,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.shopify),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Show all Orders"),
                             onTap: () {
                               Navigator.push(
@@ -145,6 +150,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.chat),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("messages"),
                             onTap: () {
                               Navigator.push(
@@ -156,6 +162,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.medical_information),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Show All Order Service"),
                             onTap: () {
                               Navigator.push(
@@ -168,12 +175,13 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.phone),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Call Support"),
                             onTap: () async
                             {
                               final Uri emailLaunchUri = Uri(
                                 scheme: 'tel',
-                                path: '+0512345678',
+                                path: '+201121527620',
 
                               );
 
@@ -182,6 +190,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           ),
                           ListTile(
                             leading: const Icon(Icons.logout),
+                            iconColor: Color(0xff1d1f32),
                             title: const Text("Logout"),
                             onTap: () async {
                               await FirebaseFirestore.instance
@@ -272,7 +281,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                           height: 10.h,
                                         ),
                                         Text(
-                                          "${PharmacyCubit.get(context).productsModel[index].price.toString()} SAR ",
+                                          "${PharmacyCubit.get(context).productsModel[index].price.toString()} EGP ",
                                           style: TextStyle(fontSize: 24.sp),
                                         ),
                                         SizedBox(
@@ -284,7 +293,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                           children: [
                                             CustomButton(
                                               disable: true,
-                                              color: Color(0xffFDCA40),
+                                              color: Colors.red,
                                               radius: 0,
                                               size: const Size(200, 20),
                                               function: () {
@@ -335,7 +344,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                             CustomButton(
                                               disable: true,
                                               radius: 0,
-                                              color: Colors.blueAccent,
+                                              color: Colors.purple,
                                               size: const Size(200, 20),
                                               function: () {
                                                 Navigator.push(context,

@@ -33,7 +33,7 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text('Search Pharmacy'),
+            title: Text('Search Employee'),
           ),
             body: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -47,7 +47,9 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                 },
                 decoration: InputDecoration(
                   hintText: 'Search',
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search, color: Colors.purple),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.purple)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -113,7 +115,7 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                             height: 10.h,
                                           ),
                                           Text(
-                                            "${productsModel[index].price.toString()} SAR ",
+                                            "${productsModel[index].price.toString()} EGP ",
                                             style: TextStyle(fontSize: 24.sp),
                                           ),
                                           SizedBox(
@@ -241,7 +243,7 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                             height: 10.h,
                                           ),
                                           Text(
-                                            "${productsModel[index].price.toString()} SAR ",
+                                            "${productsModel[index].price.toString()} EGP ",
                                             style: TextStyle(fontSize: 24.sp),
                                           ),
                                           SizedBox(

@@ -167,7 +167,7 @@ class _PendingState extends State<Pending> {
                                     height: 10.h,
                                   ),
                                   Text(
-                                    "${PharmacyCubit.get(context).products[index].price.toString()} SAR ",
+                                    "${PharmacyCubit.get(context).products[index].price.toString()} EGP ",
                                     style: TextStyle(fontSize: 24.sp),
                                   ),
                                   SizedBox(
@@ -214,13 +214,13 @@ class _PendingState extends State<Pending> {
                                                 height: 40.h,
                                                 width: 200,
                                                 child: const Center(
-                                                    child: Text("Delete")),
+                                                    child: Text("Reject")),
                                               ),
                                             ),
                                             CustomButton(
                                               disable: true,
                                               radius: 0,
-                                              color: Colors.blueAccent,
+                                              color: Colors.purple,
                                               size: const Size(200, 20),
                                               function: () {
                                                 PharmacyCubit.get(context)
@@ -247,7 +247,7 @@ class _PendingState extends State<Pending> {
                                                 height: 40.h,
                                                 width: 200.w,
                                                 child: Center(
-                                                    child: Text("Accepted")),
+                                                    child: Text("Accept")),
                                               ),
                                             )
                                           ],

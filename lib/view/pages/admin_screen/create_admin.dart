@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../../code/resource/validator.dart';
 import '../../../view_model/bloc/auth/auth_cubit.dart';
 import '../../components/custom_button.dart';

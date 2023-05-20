@@ -26,8 +26,8 @@ TextEditingController costController = TextEditingController();
 TextEditingController quantityController = TextEditingController();
 
 final List<String> items = [
-  'medicine',
-  'Medical equipment',
+  'Cleaning',
+  'Laundry',
 ];
 final List<String> items2 = [
   'No',
@@ -97,8 +97,8 @@ class _CreateProductState extends State<CreateProduct> {
                                     children: [
                                       Image.file(
                                         io.File(approveCubit.image!.path),
-                                        height: 200,
-                                        width: 200,
+                                        height: 170,
+                                        width: 170,
                                         fit: BoxFit.cover,
                                       ),
                                       IconButton(
@@ -146,12 +146,14 @@ class _CreateProductState extends State<CreateProduct> {
                                 children: [
                                   Row(
                                     children: [
-                                      const Text("Type : "),
+                                      const Text("Type : ", style: TextStyle(
+                                        color: Colors.purple, fontSize: 16, fontWeight: FontWeight.bold,
+                                      ),),
                                       SizedBox(
                                         width: 10.w,
                                       ),
                                       SizedBox(
-                                        width: 300.w,
+                                        width: 250.w,
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton2(
                                             hint: Text(
@@ -193,7 +195,9 @@ class _CreateProductState extends State<CreateProduct> {
                                   ),
                                   Row(
                                     children: [
-                                      const Text("Need prescription : "),
+                                      const Text("Available : ", style: TextStyle(
+                                        color: Colors.purple, fontSize: 16, fontWeight: FontWeight.bold,
+                                      ),),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -260,7 +264,7 @@ class _CreateProductState extends State<CreateProduct> {
                                     },
                                     hint: 'Description',
                                     iconData: Icons.description,
-                                    maxLine: 5,
+                                    maxLine: 3,
                                   ),
                                   SizedBox(
                                     height: 20.h,

@@ -54,6 +54,7 @@ class _LayOutScreenAdminState extends State<LayOutScreenAdmin> {
                 ),
                 ListTile(
                   leading: const Icon(Icons.perm_identity),
+                  iconColor: Color(0xff1d1f32),
                   title: const Text("Create Admin"),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
@@ -65,6 +66,7 @@ class _LayOutScreenAdminState extends State<LayOutScreenAdmin> {
                 ),
                 ListTile(
                   leading: const Icon(Icons.work),
+                  iconColor: Color(0xff1d1f32),
                   title: const Text("Approve Employee"),
                   onTap: () {
                     Navigator.push(
@@ -76,6 +78,7 @@ class _LayOutScreenAdminState extends State<LayOutScreenAdmin> {
                 ),
                 ListTile(
                   leading: const Icon(Icons.settings),
+                  iconColor: Color(0xff1d1f32),
                   title: const Text("Settings"),
                   onTap: () {
                     Navigator.push(
@@ -87,6 +90,7 @@ class _LayOutScreenAdminState extends State<LayOutScreenAdmin> {
                 ),
                 ListTile(
                   leading: const Icon(Icons.shopify),
+                  iconColor: Color(0xff1d1f32),
                   title: const Text("Orders"),
                   onTap: () {
                     Navigator.push(
@@ -99,6 +103,7 @@ class _LayOutScreenAdminState extends State<LayOutScreenAdmin> {
 
                 ListTile(
                   leading: const Icon(Icons.logout),
+                  iconColor: Color(0xff1d1f32),
                   title: const Text("Logout"),
                   onTap: () async {
                     await FirebaseFirestore.instance

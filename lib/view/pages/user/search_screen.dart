@@ -41,7 +41,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
                 decoration: InputDecoration(
                   hintText: 'Search',
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search, color: Colors.purple,),
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -107,7 +108,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis),
                                             Text(
-                                                "SAR ${productModel[index].price}",
+                                                "${productModel[index].price} EGP",
                                                 style: TextStyle(
                                                   fontSize: 20.sp,
                                                   fontWeight: FontWeight.w700,
@@ -175,7 +176,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis),
                                           Text(
-                                              "SAR ${productModel[index].price}",
+                                              "${productModel[index].price} EGP",
                                               style: TextStyle(
                                                 fontSize: 20.sp,
                                                 fontWeight: FontWeight.w700,

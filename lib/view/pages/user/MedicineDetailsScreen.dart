@@ -74,7 +74,7 @@ class _MedicineDetailsScreenState extends State<MedicineDetailsScreen> {
                   height: 10,
                 ),
                 Text(
-                  "SAR : ${(widget.productModel.price.toString())}",
+                  "EGP : ${(widget.productModel.price.toString())}",
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24.sp),
                 ),
                 const SizedBox(

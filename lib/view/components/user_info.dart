@@ -78,13 +78,13 @@ List<String> _selecteditems = [];
               CustomTextField(
                 controller: emailController,
                 fieldValidator: emailValidator,
-                hint: 'email',
+                hint: 'Email',
                 iconData: Icons.email,
               ),
               const SizedBox(
                 height: 20,
               ),
-              text(text: 'password'),
+              text(text: 'Password'),
               CustomTextField(
                 controller: passwordController,
                 fieldValidator: passwordValidator,
@@ -126,7 +126,7 @@ List<String> _selecteditems = [];
               ),
               Row(
                 children: [
-                  FaIcon(FontAwesomeIcons.marsAndVenus , color: Colors.grey,),
+                  FaIcon(FontAwesomeIcons.marsAndVenus , color: Colors.purple,),
                   SizedBox(width: 20.w,),
                   SizedBox(
                     width: 320.w,
@@ -239,7 +239,7 @@ List<String> _selecteditems = [];
                         chornic: _selecteditems);
                   }
                 },
-                color: Color(0xff1A81F7),
+                color: Colors.purple,
                 widget: Text("Register"),
                 size: Size(300.w, 50.h),
                 radius: 20.r,

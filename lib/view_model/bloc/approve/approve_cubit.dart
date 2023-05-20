@@ -233,7 +233,7 @@ class ApproveCubit extends Cubit<ApproveState> {
     await FirebaseFirestore.instance.collection('product').add({
       'title': title,
       'price': price,
-      'image': quantity,
+      'image': "",
       'description': description,
       'pharmacyID': CacheHelper.getDataString(key: 'id'),
       'quantity': quantity,
@@ -249,8 +249,11 @@ class ApproveCubit extends Cubit<ApproveState> {
       }).then((value) async
       {
         wait = true;
-        await uploadFile(image, context, docId!).whenComplete(() async {});
-        emit(AddProductSuccessfulState());
+        await uploadFile(image, context, docId!).whenComplete(() async
+        {
+          emit(AddProductSuccessfulState());
+
+        });
       }).catchError((onError) {
         emit(AddProductStateError());
       });

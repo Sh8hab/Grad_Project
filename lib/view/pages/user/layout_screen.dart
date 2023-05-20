@@ -61,6 +61,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
                         ListTile(
                           leading: const Icon(Icons.settings),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("Settings"),
                           onTap: () {
                             Navigator.push(
@@ -73,6 +74,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
                         ListTile(
                           leading: const Icon(Icons.shopping_cart),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("My order Service"),
                           onTap: () {
                             Navigator.push(
@@ -85,6 +87,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                         ),
                         ListTile(
                           leading: const Icon(Icons.shopping_cart),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("My order"),
                           onTap: () {
                             Navigator.push(
@@ -94,21 +97,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
                                 ));
                           },
                         ),
-                        // ),
-                        // ListTile(
-                        // leading: const Icon(Icons.design_services_sharp),
-                        // title: const Text("Show all Service"),
-                        // onTap: () {
-                        // Navigator.push(
-                        // context,
-                        // MaterialPageRoute(
-                        // builder: (context) => const GetPharmacyServices(),
-                        // ));
-                        // },
-                        // ),
-                        //
                         ListTile(
                           leading: const Icon(Icons.shopify),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("Show all Orders"),
                           onTap: () {
                             Navigator.push(
@@ -118,43 +109,21 @@ class _LayoutScreenState extends State<LayoutScreen> {
                                 ));
                           },
                         ),
-                        // ListTile(
-                        // leading: const Icon(Icons.logout),
-                        // title: const Text("Logout"),
-                        // onTap: () async {
-                        // await FirebaseFirestore.instance
-                        //     .collection('users')
-                        //     .doc(userID)
-                        //     .update({
-                        // 'online': 'false',
-                        // }).then((value) async {
-                        // userID = null;
-                        // await CacheHelper.removeData(key: 'id');
-                        // FirebaseAuth.instance.signOut();
-                        // }).then((value) {
-                        // Navigator.pushAndRemoveUntil(
-                        // context,
-                        // MaterialPageRoute(
-                        // builder: (context) => LoginScreen(),
-                        // ),
-                        // (route) => false);
-                        // });
-                        // },
-                        // ),
                         ListTile(
                           leading: const Icon(Icons.phone),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("Call Support"),
                           onTap: () async {
                             final Uri call = Uri(
                               scheme: 'tel',
                               path: '+01121527620',
                             );
-
                             launchUrl(call);
                           },
                         ),
                         ListTile(
                           leading: const Icon(Icons.logout),
+                          iconColor: Color(0xff1d1f32),
                           title: const Text("Logout"),
                           onTap: () async {
                             await FirebaseFirestore.instance

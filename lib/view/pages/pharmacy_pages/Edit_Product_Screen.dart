@@ -31,8 +31,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextEditingController quantityController = TextEditingController();
   TextEditingController description = TextEditingController();
   final List<String> items = [
-    'medicine',
-    'Medical equipment',
+    'Cleaning',
+    'Laundry',
   ];
   String? selectedValue;
 
@@ -131,41 +131,41 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                   SizedBox(
                                     width: 20.w,
                                   ),
-                                  SizedBox(
-                                    width: 300.w,
-                                    child: DropdownButtonHideUnderline(
-                                      child: DropdownButton2(
-                                        hint: Text(
-                                          'Select Item',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Theme.of(context).hintColor,
-                                          ),
-                                        ),
-                                        items: items
-                                            .map((item) =>
-                                                DropdownMenuItem<String>(
-                                                  value: item,
-                                                  child: Text(
-                                                    item,
-                                                    style: const TextStyle(
-                                                      fontSize: 14,
-                                                    ),
-                                                  ),
-                                                ))
-                                            .toList(),
-                                        value: selectedValue,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            selectedValue = value as String;
-                                          });
-                                        },
-                                        buttonHeight: 40,
-                                        buttonWidth: 140,
-                                        itemHeight: 40,
-                                      ),
-                                    ),
-                                  ),
+                                  // SizedBox(
+                                  //   width: 300.w,
+                                  //   child: DropdownButtonHideUnderline(
+                                  //     child: DropdownButton2(
+                                  //       hint: Text(
+                                  //         'Select Item',
+                                  //         style: TextStyle(
+                                  //           fontSize: 14,
+                                  //           color: Theme.of(context).hintColor,
+                                  //         ),
+                                  //       ),
+                                  //       items: items
+                                  //           .map((item) =>
+                                  //               DropdownMenuItem<String>(
+                                  //                 value: item,
+                                  //                 child: Text(
+                                  //                   item,
+                                  //                   style: const TextStyle(
+                                  //                     fontSize: 14,
+                                  //                   ),
+                                  //                 ),
+                                  //               ))
+                                  //           .toList(),
+                                  //       value: selectedValue,
+                                  //       onChanged: (value) {
+                                  //         setState(() {
+                                  //           selectedValue = value as String;
+                                  //         });
+                                  //       },
+                                  //       buttonHeight: 40,
+                                  //       buttonWidth: 140,
+                                  //       itemHeight: 40,
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                               CustomTextField(

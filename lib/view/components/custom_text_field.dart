@@ -41,6 +41,9 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxLine,
       decoration: InputDecoration(
         icon: Icon(iconData),
+          iconColor: Colors.purple,
+        focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: ColorManage.primaryBlue)),
           errorBorder:  UnderlineInputBorder(
               borderSide: BorderSide(color: ColorManage.redError)),
           enabledBorder: const UnderlineInputBorder(

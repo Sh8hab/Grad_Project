@@ -22,7 +22,7 @@ class _GetPharmacyServicesState extends State<GetPharmacyServices> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Pharmacy Services'),
+          title: const Text('Employee Services'),
         ),
         body: BlocConsumer<ServicesCubit, ServicesState>(
             listener: (context, state) {},
