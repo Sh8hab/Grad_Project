@@ -117,7 +117,7 @@ class _PendingState extends State<Pending> {
                         height: 10.h,
                       ),
                       Text(
-                        "${PharmacyCubit.get(context).services[index].cost.toString()} SAR ",
+                        "${PharmacyCubit.get(context).services[index].cost.toString()} EGP ",
                         style: TextStyle(fontSize: 24.sp),
                       ),
                       SizedBox(

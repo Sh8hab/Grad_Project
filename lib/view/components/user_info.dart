@@ -186,12 +186,10 @@ List<String> _selecteditems = [];
                 hint: 'age',
                 iconData: Icons.date_range,
               ),
-
               SizedBox(
                 height: 20,
               ),
               text(text: 'Phone'),
-
               CustomTextField(
                 textInputType: TextInputType.phone,
                 controller: phoneController,
@@ -234,7 +232,6 @@ List<String> _selecteditems = [];
                         name: nameController.text,
                         age: ageController.text,
                         role: '3',
-                        // will change
                         address: address.text,
                         chornic: _selecteditems);
                   }

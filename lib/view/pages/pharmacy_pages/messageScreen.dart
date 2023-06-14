@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/view/pages/pharmacy_pages/pharmactMessage.dart';
 import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
-
 import '../ChatScreen.dart';
 
 class MessageScreen extends StatefulWidget {

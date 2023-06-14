@@ -1,5 +1,4 @@
 import 'dart:io' as io;
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import 'package:graduation_project/view_model/database/local/cache_helper.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
-
 import '../../../model/pharmacy_model.dart';
 import '../../components/message.dart';
 

@@ -92,7 +92,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         CustomButton(
                           size: Size(200, 59),
                           disable: true,
-                          widget: const Text("EditImage"),
+                          widget: const Text("Edit Image"),
                           function: () {
                             Navigator.push(
                                 context,

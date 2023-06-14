@@ -213,7 +213,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           disable: enable,
                         ),
                       ],)
-
                       ],
                     ),
                   )

@@ -61,6 +61,9 @@ dependencies:
   url_launcher: ^6.1.6
   animate_do: ^3.0.2
   fluttertoast: ^8.2.1
+  location: ^4.4.0
+  geolocator: ^9.0.2
+  geocoding: ^2.0.5
 
 
 

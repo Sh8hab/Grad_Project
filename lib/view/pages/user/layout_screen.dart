@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:graduation_project/view_model/bloc/layout/layout__cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../code/constants_value.dart';
 import '../../../view_model/bloc/auth/auth_cubit.dart';
 import '../../../view_model/database/local/cache_helper.dart';
@@ -24,7 +25,16 @@ class LayoutScreen extends StatefulWidget {
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
+  Position? currentPosition;
+  List<Placemark>  placemarks = [];
+  String myLocation = '';
+
+
   @override
+  void initState() {
+    _determinePosition();
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return BlocConsumer<LayoutCubit, LayoutState>(
       listener: (context, state) {
@@ -48,7 +58,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                       child: Column(
                       children: [
                         SizedBox(
-                          height: 100.h,
+                          height: 70.h,
                         ),
                         CircleAvatar(
                           radius: 80.r,
@@ -56,7 +66,24 @@ class _LayoutScreenState extends State<LayoutScreen> {
                               NetworkImage(authCubit.userModel!.photo),
                         ),
                         SizedBox(
-                          height: 50.h,
+                          height: 30.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 16),
+                          child: Row(
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  color: Color(0xff1d1f32),
+                                ),
+                                Text(
+                                  myLocation,
+                                  style: TextStyle(color: Color(0xff1d1f32)),
+                                )
+                              ]),
+                        ),
+                        SizedBox(
+                          height: 20.h,
                         ),
 
                         ListTile(
@@ -168,5 +195,37 @@ class _LayoutScreenState extends State<LayoutScreen> {
         );
       },
     );
+  }
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled');
+    }
+
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+
+      if (permission == LocationPermission.denied) {
+        return Future.error("Location permission denied");
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error('Location permissions are permanently denied');
+    }
+    currentPosition  = await Geolocator.getCurrentPosition();
+    placemarks = await placemarkFromCoordinates(currentPosition!.latitude, currentPosition!.longitude);
+    setState(() {
+      myLocation = placemarks.reversed.last.subAdministrativeArea.toString();
+    });
+
+    print(placemarks.reversed.last.subAdministrativeArea.toString());
+    return currentPosition!;
   }
 }

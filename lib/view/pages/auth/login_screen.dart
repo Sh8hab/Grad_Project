@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view/pages/auth/register_screen.dart';
-import 'package:graduation_project/view/pages/auth/verification_screen.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import '../../../code/resource/validator.dart';
 import '../../../view_model/database/local/cache_helper.dart';
@@ -26,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>(); // for validation
   TextEditingController emailController = TextEditingController(); // for email
   TextEditingController passwordController =
-      TextEditingController(); // for password
+  TextEditingController(); // for password
   bool showPassword = true; // for show password
 
   @override
@@ -218,23 +217,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         (state is LoginLoadingState)
                             ? const Center(
-                                child: CircularProgressIndicator(),
-                              )
+                          child: CircularProgressIndicator(),
+                        )
                             : CustomButton(
-                                function: () {
-                                  if (formKey.currentState!.validate()) {
-                                    authCubit.login(
-                                      email: emailController.text.trim(),
-                                      password: passwordController.text,
-                                    );
-                                  }
-                                },
-                                color: Colors.purple,
-                                widget: Text("LOGIN"),
-                                size: Size(300.w, 50.h),
-                                radius: 20.r,
-                                disable: true,
-                              ),
+                          function: () {
+                            if (formKey.currentState!.validate()) {
+                              authCubit.login(
+                                email: emailController.text.trim(),
+                                password: passwordController.text,
+                              );
+                            }
+                          },
+                          color: Colors.purple,
+                          widget: Text("LOGIN"),
+                          size: Size(300.w, 50.h),
+                          radius: 20.r,
+                          disable: true,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
