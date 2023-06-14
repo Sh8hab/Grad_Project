@@ -1,5 +1,4 @@
 import 'dart:io' as io;
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +12,16 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../components/message.dart';
 
-class PharmacyMessage extends StatefulWidget {
-  PharmacyMessage({Key? key, required this.pahrmacyModel});
+class EmployeeMessage extends StatefulWidget {
+  EmployeeMessage({Key? key, required this.pahrmacyModel});
 
   UserModel? pahrmacyModel;
 
   @override
-  State<PharmacyMessage> createState() => _PharmacyMessageState();
+  State<EmployeeMessage> createState() => _EmployeeMessageState();
 }
 
-class _PharmacyMessageState extends State<PharmacyMessage> {
+class _EmployeeMessageState extends State<EmployeeMessage> {
   final fireStore = FirebaseFirestore.instance;
   TextEditingController messageController = TextEditingController();
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/view/pages/user/layout_pharmacy_user.dart';
-import 'package:graduation_project/view/pages/user/pharmacy_product.dart';
+import 'package:graduation_project/view/pages/user/layout_employee_user.dart';
+import 'package:graduation_project/view/pages/user/employee_product.dart';
 import '../../../view_model/bloc/layout/layout__cubit.dart';
 import '../../../view_model/bloc/user_cubit/user_cubit.dart';
 
