@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 
 import '../../../view/pages/admin_screen/customer_screen.dart';
 import '../../../view/pages/admin_screen/home_admin_screen.dart';
-import '../../../view/pages/admin_screen/pharmacy_screen_Admin.dart';
+import '../../../view/pages/admin_screen/employee_screen_Admin.dart';
 
 part 'layout_admin_state.dart';
 
@@ -15,7 +15,7 @@ class LayoutAdminCubit extends Cubit<LayoutAdminState> {
       BlocProvider.of<LayoutAdminCubit>(context);
   List<Widget> screens = [
     const AdminHomeScreen(),
-    const PharmacyScreenAdmin(),
+    const EmployeeScreenAdmin(),
     const CustomerScreenAdmin()
   ];
   List<String> appbarTitle =

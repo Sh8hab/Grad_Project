@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/code/resource/string_manager.dart';
-import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import 'package:graduation_project/view_model/bloc/pharmacy_product/employee_cubit.dart';
 
 import '../../../code/constants_value.dart';
 import '../../../view_model/bloc/user_cubit/user_cubit.dart';
@@ -19,14 +19,14 @@ class _AllMedicineScreenState extends State<AllMedicineScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    PharmacyCubit.get(context).getByTypes(type: 'medicine');
+    EmployeeCubit.get(context).getByTypes(type: 'medicine');
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PharmacyCubit, PharmacyState>(
+    return BlocBuilder<EmployeeCubit, PharmacyState>(
       buildWhen: (previous, current) {
         if (current is GetProductSuccsseful) {
           return true;
@@ -35,7 +35,7 @@ class _AllMedicineScreenState extends State<AllMedicineScreen> {
         }
       },
       builder: (context, state) {
-        var cubit = PharmacyCubit.get(context);
+        var cubit = EmployeeCubit.get(context);
         return (state is GetProductSuccsseful)
             ? SizedBox(
           width: double.infinity,
@@ -43,7 +43,7 @@ class _AllMedicineScreenState extends State<AllMedicineScreen> {
             padding: const EdgeInsets.all(20),
             child: RefreshIndicator(
               onRefresh: () async {
-              await  PharmacyCubit.get(context).getByTypes(type: 'Service');
+              await  EmployeeCubit.get(context).getByTypes(type: 'Service');
               },
               child:  GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

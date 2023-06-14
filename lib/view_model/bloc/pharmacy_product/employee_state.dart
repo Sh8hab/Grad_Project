@@ -1,4 +1,4 @@
-part of 'pharmacy_cubit.dart';
+part of 'employee_cubit.dart';
 
 @immutable
 abstract class PharmacyState {}

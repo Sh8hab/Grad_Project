@@ -6,14 +6,14 @@ import 'package:graduation_project/view/pages/user/employee_product.dart';
 import '../../../view_model/bloc/layout/layout__cubit.dart';
 import '../../../view_model/bloc/user_cubit/user_cubit.dart';
 
-class AllPharmacyScreen extends StatefulWidget {
-  const AllPharmacyScreen({Key? key}) : super(key: key);
+class AllEmployeeScreen extends StatefulWidget {
+  const AllEmployeeScreen({Key? key}) : super(key: key);
 
   @override
-  State<AllPharmacyScreen> createState() => _AllPharmacyScreenState();
+  State<AllEmployeeScreen> createState() => _AllEmployeeScreenState();
 }
 
-class _AllPharmacyScreenState extends State<AllPharmacyScreen> {
+class _AllEmployeeScreenState extends State<AllEmployeeScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -58,7 +58,7 @@ class _AllPharmacyScreenState extends State<AllPharmacyScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LayOutUserPharmacy(
+                                      builder: (context) => LayOutUserEmployee(
                                             pahrmacyModel:
                                                 cubit.EmplyeeModel[index],
                                           )));

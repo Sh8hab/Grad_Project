@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/view_model/bloc/services/services_cubit.dart';
 import 'edit_service.dart';
 
-class GetPharmacyServices extends StatefulWidget {
-  const GetPharmacyServices({Key? key}) : super(key: key);
+class GetEmployeeServices extends StatefulWidget {
+  const GetEmployeeServices({Key? key}) : super(key: key);
 
   @override
-  State<GetPharmacyServices> createState() => _GetPharmacyServicesState();
+  State<GetEmployeeServices> createState() => _GetEmployeeServicesState();
 }
 
-class _GetPharmacyServicesState extends State<GetPharmacyServices> {
+class _GetEmployeeServicesState extends State<GetEmployeeServices> {
   @override
   void initState() {
     context.read<ServicesCubit>().getServices();

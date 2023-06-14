@@ -14,7 +14,7 @@ import 'package:meta/meta.dart';
 
 import '../../../model/details_model.dart';
 import '../../../model/pharmacy_model.dart';
-import '../pharmacy_product/pharmacy_cubit.dart';
+import '../pharmacy_product/employee_cubit.dart';
 
 part 'approve_state.dart';
 
@@ -138,7 +138,7 @@ class ApproveCubit extends Cubit<ApproveState> {
                   .doc(docId)
                   .update({'image': value}).then((value) async {
                 print('amr');
-                await PharmacyCubit.get(context).getPharmacyProduct();
+                await EmployeeCubit.get(context).getPharmacyProduct();
                 wait = false;
                 emit(UploadImageStateSuccessful());
               }).catchError(() {

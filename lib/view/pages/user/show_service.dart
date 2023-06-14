@@ -6,7 +6,7 @@ import 'package:graduation_project/view/components/custom_text_field.dart';
 
 import '../../../code/resource/string_manager.dart';
 import '../../../view_model/bloc/layout/layout__cubit.dart';
-import '../../../view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import '../../../view_model/bloc/pharmacy_product/employee_cubit.dart';
 
 class ShowServicePharmacy extends StatefulWidget {
   const ShowServicePharmacy({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _ShowServicePharmacyState extends State<ShowServicePharmacy> {
   @override
   void initState() {
     // TODO: implement initState
-    PharmacyCubit.get(context).getPharmacySpecificService(
+    EmployeeCubit.get(context).getPharmacySpecificService(
         pharmacyID: LayoutCubit.get(context).EmplyeeModel!.id.toString());
     super.initState();
   }
@@ -31,34 +31,34 @@ class _ShowServicePharmacyState extends State<ShowServicePharmacy> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: BlocConsumer<PharmacyCubit, PharmacyState>(
+        body: BlocConsumer<EmployeeCubit, PharmacyState>(
           listener: (context, state) {},
           builder: (context, state) {
             return (state is GetServiceLoading)
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
-                : (PharmacyCubit.get(context).allservices.isEmpty)
+                : (EmployeeCubit.get(context).allservices.isEmpty)
                     ? const Center(
                         child: Text('No Service'),
                       )
                     : RefreshIndicator(
               onRefresh: () async {
-              await  PharmacyCubit.get(context).getPharmacySpecificService(
+              await  EmployeeCubit.get(context).getPharmacySpecificService(
                   pharmacyID: LayoutCubit.get(context).EmplyeeModel!.id.toString());
               },
                       child: ListView.builder(
                           itemCount:
-                              PharmacyCubit.get(context).allservices.length,
+                          EmployeeCubit.get(context).allservices.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Card(
                                 child: ListTile(
                                   title: Text(
-                                      "Service Name : ${PharmacyCubit.get(context).allservices[index].title}"),
+                                      "Service Name : ${EmployeeCubit.get(context).allservices[index].title}"),
                                   subtitle: Text(
-                                      "Cost : ${PharmacyCubit.get(context).allservices[index].cost.toString()}"),
+                                      "Cost : ${EmployeeCubit.get(context).allservices[index].cost.toString()}"),
                                   trailing: CustomButton(
                                     function: () {
                                       showDialog(
@@ -66,14 +66,14 @@ class _ShowServicePharmacyState extends State<ShowServicePharmacy> {
                                         builder: (context) {
                                           return AlertDialog(
                                             title: Text(
-                                                "Are you sure you want to Buy ${PharmacyCubit.get(context).allservices[index].title}"),
+                                                "Are you sure you want to Buy ${EmployeeCubit.get(context).allservices[index].title}"),
                                             content: Form(
                                               key: formKey,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   Text(
-                                                      "Cost : ${PharmacyCubit.get(context).allservices[index].cost.toString()}"),
+                                                      "Cost : ${EmployeeCubit.get(context).allservices[index].cost.toString()}"),
                                                   CustomTextField(controller: address, hint: 'Enter Address', fieldValidator: (String ? value){
                                                     if(value!.isEmpty){
                                                       return "please enter your address";
@@ -87,11 +87,11 @@ class _ShowServicePharmacyState extends State<ShowServicePharmacy> {
                                                 function: ()
                                                 {
                                                   if(formKey.currentState!.validate()){
-                                                    PharmacyCubit.get(context).buyService(
-                                                      cost: PharmacyCubit.get(context).allservices[index].cost,
-                                                      title: PharmacyCubit.get(context).allservices[index].title,
+                                                    EmployeeCubit.get(context).buyService(
+                                                      cost: EmployeeCubit.get(context).allservices[index].cost,
+                                                      title: EmployeeCubit.get(context).allservices[index].title,
                                                       address: address.text,
-                                                      serviceID: PharmacyCubit.get(context).allservices[index].id.toString(),
+                                                      serviceID: EmployeeCubit.get(context).allservices[index].id.toString(),
                                                       pharmacyID: LayoutCubit.get(context).EmplyeeModel!.id.toString(),
                                                     ).then((value) {
                                                       Navigator.pop(context);

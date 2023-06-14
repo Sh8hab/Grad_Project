@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/view_model/bloc/user_cubit/user_cubit.dart';
 
-class ShowOrderPharmacyService extends StatefulWidget {
-  const ShowOrderPharmacyService({Key? key}) : super(key: key);
+class ShowOrderEmployeeService extends StatefulWidget {
+  const ShowOrderEmployeeService({Key? key}) : super(key: key);
 
   @override
-  State<ShowOrderPharmacyService> createState() => _ShowOrderPharmacyServiceState();
+  State<ShowOrderEmployeeService> createState() => _ShowOrderEmployeeServiceState();
 }
 
-class _ShowOrderPharmacyServiceState extends State<ShowOrderPharmacyService> {
+class _ShowOrderEmployeeServiceState extends State<ShowOrderEmployeeService> {
   @override
   void initState() {
     // TODO: implement initState

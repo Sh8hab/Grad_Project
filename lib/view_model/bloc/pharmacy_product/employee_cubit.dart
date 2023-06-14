@@ -1,5 +1,4 @@
 import 'dart:io' as io;
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/view_model/database/local/cache_helper.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../model/get_product_model.dart';
 import '../../../model/get_service_model.dart';
 import '../../../model/order_model.dart';
@@ -18,12 +16,12 @@ import '../../../model/service_model.dart';
 import '../../../model/user_info_model.dart';
 import '../../../model/user_model.dart';
 
-part 'pharmacy_state.dart';
+part 'employee_state.dart';
 
-class PharmacyCubit extends Cubit<PharmacyState> {
-  PharmacyCubit() : super(PharmacyInitial());
+class EmployeeCubit extends Cubit<PharmacyState> {
+  EmployeeCubit() : super(PharmacyInitial());
 
-  static PharmacyCubit get(context) => BlocProvider.of<PharmacyCubit>(context);
+  static EmployeeCubit get(context) => BlocProvider.of<EmployeeCubit>(context);
   List<ProductModel> productsModel = [];
 
   Future<void> getPharmacyProduct() async {

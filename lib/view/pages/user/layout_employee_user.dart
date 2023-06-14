@@ -4,15 +4,15 @@ import 'package:graduation_project/model/pharmacy_model.dart';
 import 'package:graduation_project/view_model/bloc/layout/layout__cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class LayOutUserPharmacy extends StatefulWidget {
-  LayOutUserPharmacy({Key? key, this.pahrmacyModel}) : super(key: key);
+class LayOutUserEmployee extends StatefulWidget {
+  LayOutUserEmployee({Key? key, this.pahrmacyModel}) : super(key: key);
   PharmacyModel? pahrmacyModel;
 
   @override
-  State<LayOutUserPharmacy> createState() => _LayOutUserPharmacyState();
+  State<LayOutUserEmployee> createState() => _LayOutUserEmployeeState();
 }
 
-class _LayOutUserPharmacyState extends State<LayOutUserPharmacy> {
+class _LayOutUserEmployeeState extends State<LayOutUserEmployee> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LayoutCubit, LayoutState>(listener: (context, state) {

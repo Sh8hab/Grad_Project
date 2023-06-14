@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../code/constants_value.dart';
 import '../../../code/resource/string_manager.dart';
-import '../../../view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import '../../../view_model/bloc/pharmacy_product/employee_cubit.dart';
 import '../user/MedicineDetailsScreen.dart';
 class AdminShowProduct extends StatefulWidget {
   const AdminShowProduct({Key? key}) : super(key: key);
@@ -20,14 +20,14 @@ class _AdminShowProductState extends State<AdminShowProduct> {
   @override
   void initState() {
     // TODO: implement initState
-    PharmacyCubit.get(context).getByTypes(type: 'Emplyee',x: 2);
+    EmployeeCubit.get(context).getByTypes(type: 'Emplyee',x: 2);
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PharmacyCubit, PharmacyState>(
+    return BlocBuilder<EmployeeCubit, PharmacyState>(
       buildWhen: (previous, current) {
         if (current is GetProductSuccsseful) {
           return true;
@@ -36,7 +36,7 @@ class _AdminShowProductState extends State<AdminShowProduct> {
         }
       },
       builder: (context, state) {
-        var cubit = PharmacyCubit.get(context);
+        var cubit = EmployeeCubit.get(context);
         return (state is GetProductSuccsseful)
             ? Scaffold(
           appBar: AppBar(
@@ -49,7 +49,7 @@ class _AdminShowProductState extends State<AdminShowProduct> {
                 padding: const EdgeInsets.all(20),
                 child: RefreshIndicator(
                   onRefresh: () async {
-                    await  PharmacyCubit.get(context).getByTypes(type: 'medicine',x: 2);
+                    await  EmployeeCubit.get(context).getByTypes(type: 'medicine',x: 2);
                   },
                   child:  GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

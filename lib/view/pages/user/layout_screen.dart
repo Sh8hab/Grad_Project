@@ -15,7 +15,7 @@ import '../auth/login_screen.dart';
 import 'EditUserInfo.dart';
 import 'my_order_list.dart';
 import 'orderUser.dart';
-import 'order_pharmacy_service.dart';
+import 'order_employee_service.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({Key? key}) : super(key: key);
@@ -108,7 +108,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      const ShowOrderPharmacyService(),
+                                      const ShowOrderEmployeeService(),
                                 ));
                           },
                         ),

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
-
+import 'package:graduation_project/view_model/bloc/pharmacy_product/employee_cubit.dart';
 import '../../components/custom_button.dart';
 
 class ShowAllServiceOrder extends StatefulWidget {
@@ -22,7 +21,7 @@ class _ShowAllServiceOrderState extends State<ShowAllServiceOrder> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyCubit, PharmacyState>(
+    return BlocConsumer<EmployeeCubit, PharmacyState>(
       listener: (context, state) {
         // TODO: implement listener
       },
@@ -67,13 +66,13 @@ class _PendingState extends State<Pending> {
   @override
   void initState() {
     // TODO: implement initState
-    PharmacyCubit.get(context).getOrdersService(widget.data);
+    EmployeeCubit.get(context).getOrdersService(widget.data);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyCubit, PharmacyState>(
+    return BlocConsumer<EmployeeCubit, PharmacyState>(
       listener: (context, state) {
         // TODO: implement listener
       },
@@ -82,7 +81,7 @@ class _PendingState extends State<Pending> {
             ? const Center(
           child: CircularProgressIndicator(),
         )
-            : (PharmacyCubit.get(context).services.isNotEmpty)
+            : (EmployeeCubit.get(context).services.isNotEmpty)
             ? Padding(
           padding: const EdgeInsets.all(20),
           child: GridView.builder(
@@ -93,7 +92,7 @@ class _PendingState extends State<Pending> {
               mainAxisExtent:
               (widget.data == 'pending') ? 450.h : 350.h,
             ),
-            itemCount: PharmacyCubit.get(context).services.length,
+            itemCount: EmployeeCubit.get(context).services.length,
             itemBuilder: (context, index) {
               return Card(
                 child: Padding(
@@ -104,7 +103,7 @@ class _PendingState extends State<Pending> {
                         height: 10.h,
                       ),
                       Text(
-                        PharmacyCubit.get(context)
+                        EmployeeCubit.get(context)
                             .services[index]
                             .title,
                         overflow: TextOverflow.ellipsis,
@@ -117,7 +116,7 @@ class _PendingState extends State<Pending> {
                         height: 10.h,
                       ),
                       Text(
-                        "${PharmacyCubit.get(context).services[index].cost.toString()} EGP ",
+                        "${EmployeeCubit.get(context).services[index].cost.toString()} EGP ",
                         style: TextStyle(fontSize: 24.sp),
                       ),
                       SizedBox(
@@ -128,7 +127,7 @@ class _PendingState extends State<Pending> {
                         height: 10.h,
                       ),
                       Text(
-                        "Address : ${PharmacyCubit.get(context).services[index].address.toString()}  ",
+                        "Address : ${EmployeeCubit.get(context).services[index].address.toString()}  ",
                         style: TextStyle(fontSize: 24.sp),
                       ),
                       SizedBox(
@@ -145,21 +144,21 @@ class _PendingState extends State<Pending> {
                             radius: 0,
                             size: const Size(200, 20),
                             function: () {
-                              PharmacyCubit.get(context).rejectService(
+                              EmployeeCubit.get(context).rejectService(
                                   index: index,
                                   orderID:
-                                  PharmacyCubit.get(context)
+                                  EmployeeCubit.get(context)
                                       .services[index]
                                       .id,
                                   productID:
-                                  PharmacyCubit.get(context)
+                                  EmployeeCubit.get(context)
                                       .services[index].serviceID);
                             },
                             widget: SizedBox(
                               height: 40.h,
                               width: 200,
                               child: const Center(
-                                  child: Text("Delete")),
+                                  child: Text("Reject")),
                             ),
                           ),
                           CustomButton(
@@ -168,15 +167,15 @@ class _PendingState extends State<Pending> {
                             color: Colors.blueAccent,
                             size: const Size(200, 20),
                             function: () {
-                              PharmacyCubit.get(context)
+                              EmployeeCubit.get(context)
                                   .acceptOrderService(
                                   orderID:
-                                  PharmacyCubit.get(
+                                  EmployeeCubit.get(
                                       context)
                                       .services[index]
                                       .id,
                                   productID:
-                                  PharmacyCubit.get(
+                                  EmployeeCubit.get(
                                       context)
                                       .services[index]
                                       .serviceID,
@@ -186,7 +185,7 @@ class _PendingState extends State<Pending> {
                               height: 40.h,
                               width: 200.w,
                               child: Center(
-                                  child: Text("Accepted")),
+                                  child: Text("Accept")),
                             ),
                           )
                         ],
@@ -232,17 +231,17 @@ class _PendingState extends State<Pending> {
 // itemCount: PharmacyCubit.get(context).orders.length),
 // ),
 Widget accepted({required BuildContext context}) {
-  return BlocConsumer<PharmacyCubit, PharmacyState>(
+  return BlocConsumer<EmployeeCubit, PharmacyState>(
     listener: (context, state) {
       // TODO: implement listener
     },
     builder: (context, state) {
-      print(PharmacyCubit.get(context).orders.length);
+      print(EmployeeCubit.get(context).orders.length);
       return (state is GetOrderLoading)
           ? const Center(
         child: CircularProgressIndicator(),
       )
-          : (PharmacyCubit.get(context).orders.isNotEmpty)
+          : (EmployeeCubit.get(context).orders.isNotEmpty)
           ? ListView.separated(
           itemBuilder: (context, index) {
             return InkWell(
@@ -256,11 +255,11 @@ Widget accepted({required BuildContext context}) {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                              "Title ${PharmacyCubit.get(context).productsOrder[index].title}"),
+                              "Title ${EmployeeCubit.get(context).productsOrder[index].title}"),
                           Text(
-                              'Address : ${PharmacyCubit.get(context).orders[index].address}'),
+                              'Address : ${EmployeeCubit.get(context).orders[index].address}'),
                           Text(
-                              'Total Price: ${PharmacyCubit.get(context).orders[index].totalPrice}'),
+                              'Total Price: ${EmployeeCubit.get(context).orders[index].totalPrice}'),
                         ],
                       ),
                       actions: [],
@@ -270,19 +269,19 @@ Widget accepted({required BuildContext context}) {
               },
               child: ListTile(
                 leading: Image(
-                  image: NetworkImage(PharmacyCubit.get(context)
+                  image: NetworkImage(EmployeeCubit.get(context)
                       .productsOrder[index]
                       .image),
                 ),
                 title: Text(
-                    "Title ${PharmacyCubit.get(context).productsOrder[index].title}"),
+                    "Title ${EmployeeCubit.get(context).productsOrder[index].title}"),
                 subtitle: Text("Price" +
-                    PharmacyCubit.get(context)
+                    EmployeeCubit.get(context)
                         .productsOrder[index]
                         .price
                         .toString()),
                 trailing: Text('Total Price: ' +
-                    PharmacyCubit.get(context)
+                    EmployeeCubit.get(context)
                         .orders[index]
                         .totalPrice
                         .toString()),
@@ -292,7 +291,7 @@ Widget accepted({required BuildContext context}) {
           separatorBuilder: (context, index) {
             return const Divider();
           },
-          itemCount: PharmacyCubit.get(context).orders.length)
+          itemCount: EmployeeCubit.get(context).orders.length)
           : Center(
         child: Text("No Accepted Order"),
       );
@@ -301,7 +300,7 @@ Widget accepted({required BuildContext context}) {
 }
 
 Widget rejected({required BuildContext context}) {
-  return BlocConsumer<PharmacyCubit, PharmacyState>(
+  return BlocConsumer<EmployeeCubit, PharmacyState>(
     listener: (context, state) {
       // TODO: implement listener
     },
@@ -323,11 +322,11 @@ Widget rejected({required BuildContext context}) {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                              "Title ${PharmacyCubit.get(context).productsOrder[index].title}"),
+                              "Title ${EmployeeCubit.get(context).productsOrder[index].title}"),
                           Text(
-                              'Address : ${PharmacyCubit.get(context).orders[index].address}'),
+                              'Address : ${EmployeeCubit.get(context).orders[index].address}'),
                           Text(
-                              'Total Price: ${PharmacyCubit.get(context).orders[index].totalPrice}'),
+                              'Total Price: ${EmployeeCubit.get(context).orders[index].totalPrice}'),
                         ],
                       ),
                       actions: [],
@@ -337,19 +336,19 @@ Widget rejected({required BuildContext context}) {
               },
               child: ListTile(
                 leading: Image(
-                  image: NetworkImage(PharmacyCubit.get(context)
+                  image: NetworkImage(EmployeeCubit.get(context)
                       .productsOrder[index]
                       .image),
                 ),
                 title: Text(
-                    "Title ${PharmacyCubit.get(context).productsOrder[index].title}"),
+                    "Title ${EmployeeCubit.get(context).productsOrder[index].title}"),
                 subtitle: Text("Price" +
-                    PharmacyCubit.get(context)
+                    EmployeeCubit.get(context)
                         .productsOrder[index]
                         .price
                         .toString()),
                 trailing: Text('Total Price: ' +
-                    PharmacyCubit.get(context)
+                    EmployeeCubit.get(context)
                         .orders[index]
                         .totalPrice
                         .toString()),
@@ -359,7 +358,7 @@ Widget rejected({required BuildContext context}) {
           separatorBuilder: (context, index) {
             return const Divider();
           },
-          itemCount: PharmacyCubit.get(context).orders.length);
+          itemCount: EmployeeCubit.get(context).orders.length);
     },
   );
 }

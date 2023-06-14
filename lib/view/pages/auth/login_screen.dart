@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view/pages/auth/register_screen.dart';
+import 'package:graduation_project/view/pages/employee_pages/layout_employee.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import '../../../code/resource/validator.dart';
 import '../../../view_model/database/local/cache_helper.dart';
@@ -11,7 +12,6 @@ import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/custom_texts.dart';
 import '../admin_screen/layout_admin.dart';
-import '../pharmacy_pages/layout_pharmacy.dart';
 import '../user/layout_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             AsyncSnapshot<DocumentSnapshot> snapshot) {
                           if (snapshot.hasData) {
                             if (!snapshot.data!['ban']) {
-                              return const LayoutPharmacy();
+                              return const LayoutEmployee();
                             } else {
                               CacheHelper.removeData(key: 'id');
                               return LoginScreen();

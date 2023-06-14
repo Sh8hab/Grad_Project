@@ -5,18 +5,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/view/pages/user/layout_employee_user.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../view_model/bloc/auth/auth_cubit.dart';
 import '../../../view_model/bloc/layout/layout__cubit.dart';
 
-class PharmacyScreenAdmin extends StatefulWidget {
-  const PharmacyScreenAdmin({Key? key}) : super(key: key);
+class EmployeeScreenAdmin extends StatefulWidget {
+  const EmployeeScreenAdmin({Key? key}) : super(key: key);
 
   @override
-  State<PharmacyScreenAdmin> createState() => _PharmacyScreenAdminState();
+  State<EmployeeScreenAdmin> createState() => _EmployeeScreenAdminState();
 }
 
-class _PharmacyScreenAdminState extends State<PharmacyScreenAdmin> {
+class _EmployeeScreenAdminState extends State<EmployeeScreenAdmin> {
   @override
   void initState() {
     // TODO: implement initState
@@ -224,7 +223,7 @@ class _PharmacyScreenAdminState extends State<PharmacyScreenAdmin> {
                                                       Navigator.push(context,
                                                           MaterialPageRoute(
                                                         builder: (context) {
-                                                          return LayOutUserPharmacy(
+                                                          return LayOutUserEmployee(
                                                             pahrmacyModel: authCubit
                                                                     .getAllPharmacyList[
                                                                 index],

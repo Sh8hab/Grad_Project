@@ -5,23 +5,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/view_model/bloc/layout/layout__cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../../../code/constants_value.dart';
 import '../../../view_model/bloc/auth/auth_cubit.dart';
 import '../../../view_model/database/local/cache_helper.dart';
 import '../admin_screen/settings_screen.dart';
 import '../auth/login_screen.dart';
-import '../pharmacy_pages/show_all_service_order.dart';
 
 
-class LayoutPharmacy extends StatefulWidget {
-  const LayoutPharmacy({Key? key}) : super(key: key);
+class LayoutEmployee extends StatefulWidget {
+  const LayoutEmployee({Key? key}) : super(key: key);
 
   @override
-  State<LayoutPharmacy> createState() => _LayoutPharmacyState();
+  State<LayoutEmployee> createState() => _LayoutEmployeeState();
 }
 
-class _LayoutPharmacyState extends State<LayoutPharmacy> {
+class _LayoutEmployeeState extends State<LayoutEmployee> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LayoutCubit, LayoutState>(
@@ -31,7 +29,6 @@ class _LayoutPharmacyState extends State<LayoutPharmacy> {
       builder: (context, state) {
         LayoutCubit cubit = LayoutCubit.get(context);
         return Scaffold(
-
 
           body:cubit.Pharmacy[cubit.currentPharamcy],
           bottomNavigationBar: BottomNavigationBar(

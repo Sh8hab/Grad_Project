@@ -1,12 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/view/pages/employee_pages/employee_message.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import 'package:graduation_project/view_model/database/local/cache_helper.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../pages/pharmacy_pages/pharmactMessage.dart';
 class MessageLine extends StatelessWidget {
   MessageLine({super.key,this.idDocOne,this.idDocTwo,this.pharmacyID,this.customerID ,this.id, this.messageText, this.sender, this.isMe, this.type ,this.baseName , required this.dateTime});
   String ? customerID;

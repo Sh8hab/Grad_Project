@@ -6,7 +6,7 @@ import 'package:graduation_project/model/product_model.dart';
 import 'package:graduation_project/view_model/bloc/user_cubit/user_cubit.dart';
 import 'package:graduation_project/view_model/database/local/cache_helper.dart';
 
-import '../../../view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import '../../../view_model/bloc/pharmacy_product/employee_cubit.dart';
 import '../../components/custom_button.dart';
 import '../user/MedicineDetailsScreen.dart';
 import 'Edit_Product_Screen.dart';
@@ -140,10 +140,10 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                                         actions: [
                                                           TextButton(
                                                               onPressed: () {
-                                                                PharmacyCubit.get(
+                                                                EmployeeCubit.get(
                                                                     context)
                                                                     .deleteProduct(
-                                                                    id: PharmacyCubit.get(
+                                                                    id: EmployeeCubit.get(
                                                                         context)
                                                                         .productsModel[
                                                                     index]
@@ -187,7 +187,7 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                                           return EditProductScreen(
                                                               index: index,
                                                               pharmacyCubit:
-                                                              PharmacyCubit.get(
+                                                              EmployeeCubit.get(
                                                                   context));
                                                         },
                                                       ));
@@ -268,10 +268,10 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                                         actions: [
                                                           TextButton(
                                                               onPressed: () {
-                                                                PharmacyCubit.get(
+                                                                EmployeeCubit.get(
                                                                     context)
                                                                     .deleteProduct(
-                                                                    id: PharmacyCubit.get(
+                                                                    id: EmployeeCubit.get(
                                                                         context)
                                                                         .productsModel[
                                                                     index]
@@ -315,7 +315,7 @@ class _SearchPharmacyState extends State<SearchPharmacy> {
                                                           return EditProductScreen(
                                                               index: index,
                                                               pharmacyCubit:
-                                                              PharmacyCubit.get(
+                                                              EmployeeCubit.get(
                                                                   context));
                                                         },
                                                       ));

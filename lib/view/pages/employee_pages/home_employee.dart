@@ -3,12 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/get_pharmacy_services.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/show_all_service_order.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/show_orders.dart';
+import 'package:graduation_project/view/pages/employee_pages/get_employee_services.dart';
+import 'package:graduation_project/view/pages/employee_pages/show_all_service_order.dart';
+import 'package:graduation_project/view/pages/employee_pages/show_orders.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import '../../../view_model/bloc/pharmacy_product/employee_cubit.dart';
 import '../../../view_model/database/local/cache_helper.dart';
 import '../../components/custom_button.dart';
 import '../auth/login_screen.dart';
@@ -31,7 +31,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
     // TODO: implement initState
 
     AuthCubit.get(context).getPharmacyDetails();
-    PharmacyCubit.get(context).getPharmacyProduct();
+    EmployeeCubit.get(context).getPharmacyProduct();
 
     super.initState();
   }
@@ -48,7 +48,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
             appBar: AppBar(
               title: const Text('Home Employee'),
               actions: [
-                BlocConsumer<PharmacyCubit, PharmacyState>(
+                BlocConsumer<EmployeeCubit, PharmacyState>(
                   listener: (context, state) {
                     // TODO: implement listener
                   },
@@ -59,7 +59,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                           )
                         : IconButton(
                             onPressed: () {
-                              PharmacyCubit.get(context).getPharmacyProduct();
+                              EmployeeCubit.get(context).getPharmacyProduct();
                             },
                             icon: const Icon(Icons.refresh));
                   },
@@ -132,7 +132,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const GetPharmacyServices(),
+                                        const GetEmployeeServices(),
                                   ));
                             },
                           ),
@@ -217,7 +217,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                   ),
             body: (AuthCubit.get(context).userModel == null)
                 ? const Center(child: CircularProgressIndicator())
-                : BlocConsumer<PharmacyCubit, PharmacyState>(
+                : BlocConsumer<EmployeeCubit, PharmacyState>(
                     buildWhen: (previous, current) {
                       if (current is GetProductSuccsseful) {
                         return true;
@@ -229,7 +229,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                     },
                     builder: (context, state) {
                       if (state is GetProductSuccsseful) {
-                        if (PharmacyCubit.get(context).productsModel.isEmpty) {
+                        if (EmployeeCubit.get(context).productsModel.isEmpty) {
                           return const Center(
                             child: Text("No Products"),
                           );
@@ -244,7 +244,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                 mainAxisSpacing: 3,
                                 mainAxisExtent: 450.h,
                               ),
-                              itemCount: PharmacyCubit.get(context)
+                              itemCount: EmployeeCubit.get(context)
                                   .productsModel
                                   .length,
                               itemBuilder: (context, index) {
@@ -258,7 +258,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                               BorderRadius.circular(20.r),
                                           child: Image(
                                               image: NetworkImage(
-                                                  PharmacyCubit.get(context)
+                                                  EmployeeCubit.get(context)
                                                       .productsModel[index]
                                                       .image),
                                               width: 200.w,
@@ -268,7 +268,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                           height: 10.h,
                                         ),
                                         Text(
-                                          PharmacyCubit.get(context)
+                                          EmployeeCubit.get(context)
                                               .productsModel[index]
                                               .title,
                                           overflow: TextOverflow.ellipsis,
@@ -281,7 +281,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                           height: 10.h,
                                         ),
                                         Text(
-                                          "${PharmacyCubit.get(context).productsModel[index].price.toString()} EGP ",
+                                          "${EmployeeCubit.get(context).productsModel[index].price.toString()} EGP ",
                                           style: TextStyle(fontSize: 24.sp),
                                         ),
                                         SizedBox(
@@ -306,10 +306,10 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                                       actions: [
                                                         TextButton(
                                                             onPressed: () {
-                                                              PharmacyCubit.get(
+                                                              EmployeeCubit.get(
                                                                       context)
                                                                   .deleteProduct(
-                                                                      id: PharmacyCubit.get(
+                                                                      id: EmployeeCubit.get(
                                                                               context)
                                                                           .productsModel[
                                                                               index]
@@ -353,7 +353,7 @@ class _HomePharmacyScreenState extends State<HomePharmacyScreen> {
                                                     return EditProductScreen(
                                                         index: index,
                                                         pharmacyCubit:
-                                                            PharmacyCubit.get(
+                                                        EmployeeCubit.get(
                                                                 context));
                                                   },
                                                 ));

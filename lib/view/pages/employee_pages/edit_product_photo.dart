@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view_model/bloc/approve/approve_cubit.dart';
 import 'dart:io' as io;
-
-import '../../../view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import '../../../view_model/bloc/pharmacy_product/employee_cubit.dart';
 import '../../components/custom_button.dart';
 
 class EditImage extends StatefulWidget {
@@ -19,7 +18,7 @@ class EditImage extends StatefulWidget {
 class _EditImageState extends State<EditImage> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyCubit, PharmacyState>(
+    return BlocConsumer<EmployeeCubit, PharmacyState>(
       listener: (context, state) {
         // TODO: implement listener
       },
@@ -41,7 +40,7 @@ class _EditImageState extends State<EditImage> {
                     (approveCubit.image == null) ? Stack(
                       children: [
                         Image.network(
-                          PharmacyCubit
+                          EmployeeCubit
                               .get(context)
                               .productsModel[widget.index]
                               .image,
@@ -90,8 +89,8 @@ class _EditImageState extends State<EditImage> {
                       disable: true,
                       widget: const Text("Done"),
                       function: () {
-                        PharmacyCubit.get(context).editImageProduct(
-                            approveCubit.image, context, PharmacyCubit
+                        EmployeeCubit.get(context).editImageProduct(
+                            approveCubit.image, context, EmployeeCubit
                             .get(context)
                             .productsModel[widget.index].id);
                       },

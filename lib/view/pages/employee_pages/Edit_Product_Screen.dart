@@ -2,16 +2,16 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/edit_product_photo.dart';
+import 'package:graduation_project/view/pages/employee_pages/edit_product_photo.dart';
 import 'package:graduation_project/view_model/bloc/approve/approve_cubit.dart';
-import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import 'package:graduation_project/view_model/bloc/pharmacy_product/employee_cubit.dart';
 
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 
 class EditProductScreen extends StatefulWidget {
   final int index;
-  PharmacyCubit pharmacyCubit;
+  EmployeeCubit pharmacyCubit;
 
   EditProductScreen(
       {Key? key, required this.index, required this.pharmacyCubit})
@@ -40,19 +40,19 @@ class _EditProductScreenState extends State<EditProductScreen> {
   void initState() {
     // TODO: implement initState
     titleController.text =
-        PharmacyCubit.get(context).productsModel![widget.index].title;
-    priceController.text = PharmacyCubit.get(context)
+        EmployeeCubit.get(context).productsModel![widget.index].title;
+    priceController.text = EmployeeCubit.get(context)
         .productsModel![widget.index]
         .price
         .toString();
     description.text =
-        PharmacyCubit.get(context).productsModel![widget.index].description;
-    quantityController.text = PharmacyCubit.get(context)
+        EmployeeCubit.get(context).productsModel![widget.index].description;
+    quantityController.text = EmployeeCubit.get(context)
         .productsModel![widget.index]
         .quantity
         .toString();
     selectedValue =
-        PharmacyCubit.get(context).productsModel![widget.index].type;
+        EmployeeCubit.get(context).productsModel![widget.index].type;
     super.initState();
   }
 
@@ -64,7 +64,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       },
       builder: (context, state) {
         var approveCubit = ApproveCubit.get(context);
-        return BlocConsumer<PharmacyCubit, PharmacyState>(
+        return BlocConsumer<EmployeeCubit, PharmacyState>(
           listener: (context, state) {
             // TODO: implement listener
             if(state is UpdateProductSuccsseful){
@@ -214,11 +214,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                 widget: Text("Confirm Edit"),
                                 function: () async {
                                   if (formKey.currentState!.validate()) {
-                                    PharmacyCubit.get(context).updateProduct(
+                                    EmployeeCubit.get(context).updateProduct(
                                       quantity:
                                           int.parse(quantityController.text),
                                       title: titleController.text,
-                                      id: PharmacyCubit.get(context)
+                                      id: EmployeeCubit.get(context)
                                           .productsModel![widget.index]
                                           .id,
                                       type: selectedValue!,

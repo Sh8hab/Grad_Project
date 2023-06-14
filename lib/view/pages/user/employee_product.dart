@@ -5,25 +5,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import 'package:graduation_project/view_model/bloc/layout/layout__cubit.dart';
 
-import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import 'package:graduation_project/view_model/bloc/pharmacy_product/employee_cubit.dart';
 
 import '../../../code/constants_value.dart';
 import '../../../code/resource/string_manager.dart';
 import 'MedicineDetailsScreen.dart';
 import 'chat_screen.dart';
 
-class PharmacyProduct extends StatefulWidget {
-  PharmacyProduct({Key? key,}) : super(key: key);
+class EmployeeProduct extends StatefulWidget {
+  EmployeeProduct({Key? key,}) : super(key: key);
 
   @override
-  State<PharmacyProduct> createState() => _PharmacyProductState();
+  State<EmployeeProduct> createState() => _EmployeeProductState();
 }
 
-class _PharmacyProductState extends State<PharmacyProduct> {
+class _EmployeeProductState extends State<EmployeeProduct> {
   @override
   void initState() {
     // TODO: implement initState
-    PharmacyCubit.get(context).getPharmacySpecificProduct(
+    EmployeeCubit.get(context).getPharmacySpecificProduct(
         pharmacyID: LayoutCubit.get(context).EmplyeeModel!.id.toString()
     );
     super.initState();
@@ -33,12 +33,12 @@ class _PharmacyProductState extends State<PharmacyProduct> {
 
   @override
  Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyCubit, PharmacyState>(
+    return BlocConsumer<EmployeeCubit, PharmacyState>(
       listener: (context, state) {
         // TODO: implement listener
       },
       builder: (context, state) {
-        var cubit = PharmacyCubit.get(context);
+        var cubit = EmployeeCubit.get(context);
         print(cubit.productsModel.length);
         return Scaffold(
           backgroundColor: Color(0xffF2F3F7),
@@ -106,7 +106,7 @@ class _PharmacyProductState extends State<PharmacyProduct> {
                             actions: [
                               TextButton(
                                   onPressed: () {
-                                    PharmacyCubit.get(context)
+                                    EmployeeCubit.get(context)
                                         .postRateToPharmacy(
                                             pharmacyId:
                                                 LayoutCubit.get(context).EmplyeeModel!.id,
@@ -164,7 +164,7 @@ class _PharmacyProductState extends State<PharmacyProduct> {
                     padding: const EdgeInsets.all(20),
                     child: RefreshIndicator(
                       onRefresh: () async {
-                        PharmacyCubit.get(context).getPharmacySpecificProduct(
+                        EmployeeCubit.get(context).getPharmacySpecificProduct(
                             pharmacyID: LayoutCubit.get(context).EmplyeeModel!.id.toString());
                       },
                       child: GridView.builder(

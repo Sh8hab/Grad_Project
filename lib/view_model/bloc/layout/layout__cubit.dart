@@ -1,17 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/search_Employee.dart';
-import 'package:graduation_project/view/pages/pharmacy_pages/show_all_service_order.dart';
+import 'package:graduation_project/view/pages/employee_pages/home_employee.dart';
+import 'package:graduation_project/view/pages/employee_pages/search_Employee.dart';
 import 'package:meta/meta.dart';
-
-
 import '../../../model/pharmacy_model.dart';
-import '../../../view/pages/pharmacy_pages/home_employee.dart';
 import '../../../view/pages/user/all_device_screen.dart';
-import '../../../view/pages/user/all_pahrnacy_screen.dart';
+import '../../../view/pages/user/all_employee_screen.dart';
 import '../../../view/pages/user/medicalDevices.dart';
-import '../../../view/pages/user/pharmacy_product.dart';
+import '../../../view/pages/user/employee_product.dart';
 import '../../../view/pages/user/search_screen.dart';
 import '../../../view/pages/user/show_service.dart';
 import '../../../view/pages/user/user_home_screen.dart';
@@ -26,7 +23,7 @@ class LayoutCubit extends Cubit<LayoutState> {
 
   List<Widget> screens = [
     HomeUserScreen(),
-    AllPharmacyScreen(),
+    AllEmployeeScreen(),
     SearchScreen(),
 
   ];
@@ -38,7 +35,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   }
   List<Widget> screenUserPharmacy =
   [
-    PharmacyProduct(),
+    EmployeeProduct(),
     const ShowServicePharmacy()
   ];
   List<Widget> Pharmacy = [

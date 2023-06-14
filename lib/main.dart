@@ -9,7 +9,7 @@ import 'package:graduation_project/view_model/bloc/auth/auth_cubit.dart';
 import 'package:graduation_project/view_model/bloc/layout/layout__cubit.dart';
 import 'package:graduation_project/view_model/bloc/layout_admin/layout_admin_cubit.dart';
 import 'package:graduation_project/view_model/bloc/order_cubit/order_cubit.dart';
-import 'package:graduation_project/view_model/bloc/pharmacy_product/pharmacy_cubit.dart';
+import 'package:graduation_project/view_model/bloc/pharmacy_product/employee_cubit.dart';
 import 'package:graduation_project/view_model/bloc/search_screen/search_screen_cubit.dart';
 import 'package:graduation_project/view_model/bloc/services/services_cubit.dart';
 import 'package:graduation_project/view_model/bloc/user_cubit/user_cubit.dart';
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
               create: (context) => AuthCubit()..getUserData(),
             ),
             BlocProvider(
-              create: (context) => PharmacyCubit(),
+              create: (context) => EmployeeCubit(),
             ),
             BlocProvider(
               create: (context) => ServicesCubit()..getServices(),
