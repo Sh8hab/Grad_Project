@@ -44,7 +44,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
         LayoutCubit cubit = LayoutCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: Text(cubit.titles[cubit.currentIndex]),
+            title: Text(cubit.titles[cubit.currentPharamcy]),
           ),
           drawer: BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {},
@@ -188,6 +188,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
                   icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
                   icon: FaIcon(FontAwesomeIcons.handsWash), label: 'Cleaners'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.question_answer), label: 'Chat bot'),
               BottomNavigationBarItem(
                   icon: FaIcon(FontAwesomeIcons.search), label: 'search'),
             ],

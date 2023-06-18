@@ -5,6 +5,7 @@ import 'package:graduation_project/view/pages/employee_pages/home_employee.dart'
 import 'package:graduation_project/view/pages/employee_pages/search_Employee.dart';
 import 'package:meta/meta.dart';
 import '../../../model/pharmacy_model.dart';
+import '../../../view/pages/user/Chatbot/Chatbot_Screen.dart';
 import '../../../view/pages/user/all_device_screen.dart';
 import '../../../view/pages/user/all_employee_screen.dart';
 import '../../../view/pages/user/medicalDevices.dart';
@@ -24,8 +25,8 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<Widget> screens = [
     HomeUserScreen(),
     AllEmployeeScreen(),
+    ChatBot(),
     SearchScreen(),
-
   ];
   PharmacyModel? EmplyeeModel;
   void x(PharmacyModel pharmacyModel){
@@ -40,11 +41,14 @@ class LayoutCubit extends Cubit<LayoutState> {
   ];
   List<Widget> Pharmacy = [
     const HomePharmacyScreen(),
+    const ChatBot(),
+    const ChatBot(),
     const SearchPharmacy(),
   ];
   List<String> titles = [
     'Home',
     'Cleaners',
+    'chat Bot'
     'Search',
   ];
   void changeBottomNavBarPharamcy(int index) {
