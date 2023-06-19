@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/code/resource/color_mananger.dart';
 
 import '../../../../view_model/bloc/chat_cubit.dart';
 
@@ -21,35 +22,70 @@ class _ChatBotState extends State<ChatBot> {
         },
         builder: (context, state) {
           return Scaffold(
+            bottomSheet:                 Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children:
+                [
 
-            body: Column(
-              children: [
-                Row(
-                  children:
-                  [
-                    Expanded(
-                      child: ListView.builder(
-                          shrinkWrap: true
-                          ,itemBuilder: (context, index)
-                      {
-                        return Text("Amr");
-                      }),
+                  Expanded(
+                    child: TextFormField(
+                      controller: ChatCubit.get(context).controller,
                     ),
-                    Spacer(),
-                    Expanded(
-                      child: TextFormField(
-                        controller: ChatCubit.get(context).controller,
-                      ),
-                    ),
-                    ElevatedButton(
-                      child: Text("Hi"),
-                      onPressed: (){
-                        ChatCubit.get(context).postData(msg: "hi");
+                  ),
+                  ElevatedButton(
+
+                    child: Icon(Icons.send,color: Colors.blueGrey),
+                    onPressed: (){
+                      ChatCubit.get(context).postData(msg:ChatCubit.get(context).controller.text );
+                      ChatCubit.get(context).controller.clear();
                       },
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
+            ),
+
+            body: Padding(
+              padding:const EdgeInsets.symmetric(  horizontal: 24 , vertical: 50) ,
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(height: 20,),
+                itemCount: ChatCubit.get(context).messages.length,
+                itemBuilder: (context, index)
+              {
+               return  ChatCubit.get(context).messages[index].name == "bot" ?
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
+                          color: ColorManage.primaryBlue
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(ChatCubit.get(context).messages[index].message! ,
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
+                          ),
+                        ),
+                      ),
+                    ) : Container(
+
+                 decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(24),
+                     color: Colors.blueGrey
+                 ),
+                 child: Padding(
+                   padding: const EdgeInsets.all(20.0),
+                   child: Text(ChatCubit.get(context).messages[index].message! ,
+                     style:   const TextStyle(
+                         color: Colors.white
+                     ),
+                   ),
+                 ),
+               );
+              },),
             )
           );
         },

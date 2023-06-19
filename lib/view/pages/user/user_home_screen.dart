@@ -141,7 +141,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                                                 crossAxisCount: 2,
                                                 crossAxisSpacing: 15.w,
                                                 mainAxisSpacing: 15.h,
-                                                mainAxisExtent: 230.h,
+                                                    childAspectRatio: 2/3
                                               ),
                                               shrinkWrap: true,
                                               physics:
