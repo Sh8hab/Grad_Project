@@ -92,7 +92,7 @@ class _AdminShowProductState extends State<AdminShowProduct> {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis),
                                 Text(
-                                    "SAR ${cubit.getProductByType[index].price}",
+                                    "EGP ${cubit.getProductByType[index].price}",
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.w700,
