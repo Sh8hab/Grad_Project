@@ -45,7 +45,8 @@ class _LayoutEmployeeState extends State<LayoutEmployee> {
 
               BottomNavigationBarItem(
                   icon: FaIcon(FontAwesomeIcons.search),
-                  label: 'search'
+                  label: 'search',
+
               ),
             ],
           ),
